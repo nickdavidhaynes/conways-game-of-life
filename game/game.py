@@ -1,9 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from  matplotlib.animation import FuncAnimation
+from matplotlib.animation import FuncAnimation
 
-X_SIZE = 4
-Y_SIZE = 4
+
 N_ITER = 100
 
 INITIAL_STATE = np.array(
@@ -62,7 +61,7 @@ def update_state(state):
     return new_state
 
 
-def run_game(x_size, y_size, n_iter):
+def run_game(initial_state, n_iter):
     all_states = [INITIAL_STATE]
     for iter in range(n_iter):
         all_states.append(update_state(all_states[iter]))
@@ -71,7 +70,7 @@ def run_game(x_size, y_size, n_iter):
 
 if __name__ == '__main__':
 
-    states = run_game(X_SIZE, Y_SIZE, N_ITER)
+    states = run_game(INITIAL_STATE, N_ITER)
     fig = plt.figure()
     plot = plt.imshow(states[0])
 
